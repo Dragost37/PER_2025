@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Galileo – Tableau de bord Chercheur</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #f5f5f5;
+      --panel: #ffffff;
+      --border: #d4d4d4;
+      --accent: #111827;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --radius-lg: 12px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #e5e7eb 0, #f9fafb 40%, #f3f4f6 100%);
+      color: var(--text-main);
+    }
+
+    .app {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.15);
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+
+    .subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      background: #f9fafb;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .pill-strong {
+      border-color: #111827;
+      color: #111827;
+      background: #e5e7eb;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1.8fr) minmax(0, 1.4fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 1100px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--panel);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .placeholder {
+      margin-top: 8px;
+      padding: 10px;
+      font-size: 0.8rem;
+      border-radius: 10px;
+      border: 1px dashed var(--border);
+      background: #f9fafb;
+      color: var(--text-muted);
+    }
+
+    .tag {
+      border-radius: 999px;
+      padding: 2px 6px;
+      border: 1px solid var(--border);
+      font-size: 0.75rem;
+      background: #f9fafb;
+      color: var(--text-muted);
+      display: inline-block;
+      margin-right: 4px;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div>
+        <h1>Tableau de bord – Chercheur</h1>
+        <p class="subtitle">
+          Analyse multi-notebooks : patterns, performance et structure des workflows.
+        </p>
+      </div>
+      <nav class="nav">
+        <a href="homepage.html" class="pill">Accueil</a>
+        <a href="teacher_overview.html" class="pill">Mode Enseignant</a>
+        <a href="student_dashboard.html" class="pill">Mode Étudiant</a>
+        <span class="pill pill-strong">Mode Chercheur</span>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <section class="card">
+        <h2>Sélection des notebooks</h2>
+        <p>Choisissez un sous-ensemble de notebooks à analyser en profondeur.</p>
+
+        <div class="placeholder">
+          • Liste des notebooks (checkbox)<br />
+          • Filtres : cours, promo, métrique minimale, dataset utilisé…<br />
+          • Bouton “Analyser la sélection”
+        </div>
+
+        <h2 style="font-size: 0.9rem; margin-top: 12px;">Axes d’analyse activés</h2>
+        <div>
+          <span class="tag">Patterns</span>
+          <span class="tag">Storytelling</span>
+          <span class="tag">Artefacts</span>
+          <span class="tag">Sonar-like (qualité)</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Patterns vs Performance</h2>
+        <p>Visualisations globales liant structure des notebooks et scores de modèle.</p>
+
+        <div class="placeholder">
+          • Heatmap : patterns (lignes) vs notebooks (colonnes) / performance<br />
+          • Diagramme corrélation : nombre de patterns X → métrique Y<br />
+          • Sélection d’un pattern pour voir les notebooks concernés
+        </div>
+
+        <div class="placeholder" style="margin-top: 10px;">
+          Possible ajout : timeline globale des workflows (inspirée “storytelling”),
+          permettant d’identifier des familles de pipelines.
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Artefacts & export</h2>
+        <p>Vue agrégée des artefacts (datasets, modèles, métriques) produits par le corpus.</p>
+
+        <div class="placeholder">
+          • Liste / tableau des artefacts agrégés<br />
+          • Statistiques : combien de modèles, combien de jeux de données, etc.<br />
+          • Filtrer par type de modèle, type de métrique, dataset.
+        </div>
+
+        <div class="placeholder" style="margin-top: 10px;">
+          Bloc “Export” :<br />
+          • Export JSON / CSV des résultats d’analyse<br />
+          • Export des patterns détectés par notebook<br />
+          • Export des scores de qualité pour études ultérieures
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

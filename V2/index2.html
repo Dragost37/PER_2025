@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Galileo – Storytelling visuel (enseignant)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #f5f5f5;
+      --panel: #ffffff;
+      --border: #d4d4d4;
+      --accent: #111827;
+      --accent-soft: #e5e7eb;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --focus-ring: 2px solid #111827;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+    }
+
+    .app {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      background: #fafafa;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    header h1 {
+      font-size: 1.3rem;
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
+
+    header .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .badge {
+      border-radius: 999px;
+      border: 1px dashed var(--border);
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f9fafb;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #10b981;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 16px;
+      padding: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--panel);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 14px 14px 12px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 8px;
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .card-body {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .run-section-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+
+    .run-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .run-item {
+      border-radius: var(--radius-md);
+      border: 1px dashed var(--border);
+      padding: 6px 8px;
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f9fafb;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease,
+        transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .run-item span {
+      white-space: nowrap;
+    }
+
+    .run-item small {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    .run-item--primary {
+      border-style: solid;
+      border-color: #111827;
+      background: #e5e7eb;
+    }
+
+    .run-item--secondary {
+      border-style: dashed;
+      border-color: #4b5563;
+      background: #f3f4f6;
+    }
+
+    .run-item:hover {
+      border-color: var(--accent);
+      background: #e5e7eb;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    .run-label-pill {
+      font-size: 0.7rem;
+      border-radius: 999px;
+      padding: 1px 6px;
+      border: 1px solid var(--border);
+      margin-right: 4px;
+      background: #e5e7eb;
+    }
+
+    .hint {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Main content */
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .teacher-context {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    .teacher-context-pill {
+      border-radius: 999px;
+      border: 1px dashed var(--border);
+      padding: 3px 8px;
+      font-size: 0.8rem;
+      background: #f9fafb;
+    }
+
+    .compare-badge {
+      font-size: 0.8rem;
+      margin-left: auto;
+      color: var(--text-muted);
+    }
+
+    /* Timeline */
+    .timeline-card {
+      padding: 14px 14px 10px;
+      border-color: var(--accent-soft);
+      background: #f9fafb;
+    }
+
+    .timeline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .timeline-step {
+      flex: 1 1 120px;
+      min-width: 120px;
+      border-radius: var(--radius-md);
+      border: 1px dashed var(--border);
+      padding: 8px 10px;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      cursor: pointer;
+      background: #ffffff;
+      position: relative;
+      transition: background 0.15s ease, border-color 0.15s ease,
+        transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .timeline-step-label {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .timeline-step-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-step:hover {
+      border-color: var(--accent);
+      background: #e5e7eb;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    .timeline-step--active {
+      border-style: solid;
+      border-color: var(--accent);
+      background: #e5e7eb;
+    }
+
+    .timeline-step--active::after {
+      content: "Étape active";
+      position: absolute;
+      bottom: -16px;
+      left: 10px;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Grid story / artefacts / cells */
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 1100px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .grid-column {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Story comparison */
+    .story-compare-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 1000px) {
+      .story-compare-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .story-column {
+      border-radius: var(--radius-md);
+      border: 1px dashed var(--border);
+      padding: 8px;
+      background: #f9fafb;
+    }
+
+    .story-column--primary {
+      border-style: solid;
+      border-color: var(--accent);
+      background: #e5e7eb;
+    }
+
+    .story-column--secondary {
+      border-color: #9ca3af;
+    }
+
+    .story-column-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .story-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .story-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .story-text {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .story-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .story-tag {
+      font-size: 0.8rem;
+      border-radius: 999px;
+      border: 1px dashed var(--border);
+      padding: 3px 8px;
+      background: #ffffff;
+    }
+
+    .badge-soft {
+      border-radius: 999px;
+      border: 1px dashed var(--border);
+      padding: 3px 8px;
+      font-size: 0.75rem;
+      background: #f3f4f6;
+      color: var(--text-muted);
+    }
+
+    /* Artefacts / cells */
+    .artefact-list,
+    .cell-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .artefact-item,
+    .cell-item {
+      border-radius: var(--radius-md);
+      border: 1px dashed var(--border);
+      padding: 6px 8px;
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f9fafb;
+    }
+
+    .artefact-item-main,
+    .cell-item-main {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .artefact-type,
+    .cell-type {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .artefact-name,
+    .cell-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .artefact-meta,
+    .cell-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .empty-state {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-radius: var(--radius-md);
+      border: 1px dashed var(--border);
+      padding: 6px 8px;
+      background: #f9fafb;
+    }
+
+    /* Export / rapport */
+    .btn {
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      background: #111827;
+      color: white;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.15s ease,
+        box-shadow 0.15s ease;
+    }
+
+    .btn:hover {
+      background: #020617;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .btn-secondary {
+      background: #f9fafb;
+      color: var(--text-main);
+      border-style: dashed;
+    }
+
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .report-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .report-sections-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 1000px) {
+      .report-sections-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .report-section-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .viz-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    @media (max-width: 800px) {
+      .viz-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .viz-placeholder {
+      border-radius: var(--radius-md);
+      border: 1px dashed var(--border);
+      padding: 8px;
+      background: #f9fafb;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .viz-placeholder-box {
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      height: 90px;
+      background: repeating-linear-gradient(
+        135deg,
+        #e5e7eb,
+        #e5e7eb 4px,
+        #f3f4f6 4px,
+        #f3f4f6 8px
+      );
+    }
+
+    .viz-title {
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .viz-caption {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Accessibilité focus clavier */
+    button:focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div>
+        <h1>Galileo · Storytelling visuel</h1>
+        <div class="subtitle">
+          Maquette basse fidélité – enseignant analysant les notebooks d’élèves
+        </div>
+      </div>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Comparaison A/B optionnelle · export & prévisualisation de rapport
+      </div>
+    </header>
+
+    <main class="layout">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <!-- Étape 1 : Sélection notebooks + comparaison optionnelle -->
+        <section class="card">
+          <div class="card-header">
+            <div class="card-title">Étape 1 · Choisir les notebooks</div>
+          </div>
+          <div class="card-body">
+            <div class="run-section-title">Notebook principal (A)</div>
+            <div class="run-list" id="run-list-primary"></div>
+
+            <div class="run-section-title" style="margin-top: 10px;">
+              Notebook de comparaison (B) – optionnel
+            </div>
+            <div class="run-list" id="run-list-secondary"></div>
+
+            <div class="hint">
+              Sélectionner seulement A permet de raconter l’histoire
+              d’un notebook.<br />
+              Ajouter B active la comparaison A/B sur chaque étape du workflow.
+            </div>
+          </div>
+        </section>
+
+        <!-- Légende maquette -->
+        <section class="card">
+          <div class="card-header">
+            <div class="card-title">Légende de la maquette</div>
+          </div>
+          <div class="card-body">
+            <ul style="padding-left: 16px; margin: 0; list-style: square">
+              <li>A = notebook de référence</li>
+              <li>B = notebook de comparaison (optionnel)</li>
+              <li>Blocs rayés = visualisations exportées dans le rapport</li>
+              <li>Texte = contextualisation narrative générée/éditable</li>
+            </ul>
+          </div>
+        </section>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <section class="main">
+        <!-- Étape 2 : Contexte + prévisualisation de rapport -->
+        <section class="card">
+          <div class="card-header">
+            <div class="card-title">Étape 2 · Contexte & rapport</div>
+            <div style="display:flex; gap:8px; align-items:center;">
+              <button class="btn btn-secondary" id="toggle-report-btn">
+                Prévisualiser le futur rapport
+              </button>
+              <button class="btn" disabled title="Action simulée dans la maquette">
+                Exporter le rapport (simulation)
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="teacher-context" id="teacher-context">
+              <!-- Rempli par JS -->
+            </div>
+            <div class="hint" style="margin-top: 6px;">
+              Dans Galileo réel, la prévisualisation permet de vérifier le contenu.
+              Le bouton d’export générerait ensuite un rapport PDF/HTML à partager
+              avec l’élève ou la classe.
+            </div>
+          </div>
+        </section>
+
+        <!-- Étape 3 : Timeline -->
+        <section class="card timeline-card">
+          <div class="card-header">
+            <div class="card-title">Étape 3 · Parcourir le workflow</div>
+            <div class="badge-soft" id="timeline-meta">
+              Étape active : —
+            </div>
+          </div>
+          <div class="timeline" id="timeline">
+            <!-- Étapes remplies par JS -->
+          </div>
+        </section>
+
+        <!-- Étape 4 : Détail de l'étape -->
+        <section class="content-grid">
+          <!-- STORY A/B -->
+          <article class="card">
+            <div class="card-header">
+              <div class="card-title">Étape 4 · Histoire détaillée (A / B)</div>
+            </div>
+            <div class="card-body">
+              <div class="story-compare-wrapper">
+                <!-- Colonne A -->
+                <div class="story-column story-column--primary">
+                  <div class="story-column-header">
+                    <span class="badge-soft">
+                      <span class="run-label-pill">A</span> Notebook principal
+                    </span>
+                  </div>
+                  <div class="story-title" id="story-title-a">
+                    Sélectionne une étape dans la chronologie
+                  </div>
+                  <div class="story-meta" id="story-meta-a">
+                    La narration contextuelle de l’étape s’affichera ici.
+                  </div>
+                  <div class="story-text" id="story-text-a">
+                    Cette zone décrit ce que l’élève a fait à cette étape :
+                    intention, choix de code, impact sur les artefacts et sur
+                    la performance. Dans Galileo, le texte pourra être généré
+                    automatiquement puis ajusté par l’enseignant.
+                  </div>
+                  <div class="story-tags" id="story-tags-a"></div>
+                </div>
+
+                <!-- Colonne B (optionnelle) -->
+                <div class="story-column story-column--secondary" id="story-column-b">
+                  <div class="story-column-header">
+                    <span class="badge-soft">
+                      <span class="run-label-pill">B</span> Notebook de comparaison
+                    </span>
+                  </div>
+                  <div class="story-title" id="story-title-b">
+                    Aucune comparaison activée
+                  </div>
+                  <div class="story-meta" id="story-meta-b">
+                    Sélectionne un notebook B dans la colonne de gauche pour
+                    voir la même étape racontée pour un autre élève.
+                  </div>
+                  <div class="story-text" id="story-text-b">
+                    Quand un notebook B est sélectionné, cette colonne
+                    affichera la version “B” de la même étape de workflow.
+                    L’enseignant pourra comparer les histoires : par exemple
+                    un élève qui documente mieux, gère mieux les artefacts ou
+                    obtient une performance différente.
+                  </div>
+                  <div class="story-tags" id="story-tags-b"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- RIGHT COLUMN: ARTEFACTS + CELLS (pour A) -->
+          <div class="grid-column">
+            <!-- ARTEFACTS -->
+            <section class="card">
+              <div class="card-header">
+                <div class="card-title">Artefacts liés (Notebook A)</div>
+              </div>
+              <div class="card-body">
+                <div class="artefact-list" id="artefact-list-a"></div>
+                <div class="hint">
+                  Chaque item correspond à un <strong>objet produit</strong>
+                  par le notebook A à cette étape : dataset, modèle, métrique,
+                  visualisation…
+                </div>
+              </div>
+            </section>
+
+            <!-- CELLS -->
+            <section class="card">
+              <div class="card-header">
+                <div class="card-title">Cellules liées (Notebook A)</div>
+              </div>
+              <div class="card-body">
+                <div class="cell-list" id="cell-list-a"></div>
+                <div class="hint">
+                  Dans Galileo, cliquer ici ouvrirait la cellule réelle dans
+                  Colombus, avec mise en évidence des dépendances.
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <!-- RAPPORT EXPORTÉ (prévisualisation low-fi) -->
+        <section class="card hidden" id="report-card">
+          <div class="card-header">
+            <div class="card-title">Prévisualisation du rapport exporté</div>
+            <span class="badge-soft">Prototype · contenu fictif</span>
+          </div>
+          <div class="card-body">
+            <div class="report-preview">
+              <div>
+                <div class="report-section-title">Résumé du notebook</div>
+                <div class="artefact-item">
+                  <div class="artefact-item-main">
+                    <div class="artefact-name">
+                      Synthèse automatique & annotations enseignant
+                    </div>
+                    <div class="artefact-meta">
+                      • Objectif du notebook (compétition / exercice) ·
+                      • Étapes clés du pipeline (données → prétraitement → modèle → évaluation) ·
+                      • Positionnement dans la classe (score de l’élève vs baseline).
+                    </div>
+                  </div>
+                  <span class="badge-soft">Axe 3 & 4</span>
+                </div>
+              </div>
+
+              <div class="report-sections-grid">
+                <!-- Colonne gauche : storytelling & patterns -->
+                <div>
+                  <div class="report-section-title">
+                    Visualisations du workflow & des patterns
+                  </div>
+                  <div class="viz-grid">
+                    <!-- Viz 1 : Heatmap patterns -->
+                    <div class="viz-placeholder">
+                      <div class="viz-title">
+                        Heatmap des patterns par section
+                      </div>
+                      <div class="viz-caption">
+                        Inspiré des axes “Analysis of Pattern Influence on Notebook Efficiency”.
+                        Montre la fréquence des patterns (prétraitement, features,
+                        entraînement, évaluation) par bloc de notebook.
+                      </div>
+                      <div class="viz-placeholder-box"></div>
+                      <div class="viz-caption">
+                        Exemple : forte densité de “copy/paste” ou de cellules redondantes,
+                        corrélée à des scores plus faibles.
+                      </div>
+                      <span class="badge-soft">Axe 1</span>
+                    </div>
+
+                    <!-- Viz 2 : Timeline narrative -->
+                    <div class="viz-placeholder">
+                      <div class="viz-title">
+                        Timeline narrative du workflow
+                      </div>
+                      <div class="viz-caption">
+                        Reprise de la chronologie affichée à l’écran (données → prétraitement →
+                        entraînement → évaluation → reporting) avec les temps forts
+                        et les étapes où l’enseignant a ajouté des commentaires.
+                      </div>
+                      <div class="viz-placeholder-box"></div>
+                      <div class="viz-caption">
+                        Chaque étape est annotée : “choix de modèle”, “premier essai raté”,
+                        “itération finale”.
+                      </div>
+                      <span class="badge-soft">Axe 3</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Colonne droite : artefacts & qualité -->
+                <div>
+                  <div class="report-section-title">
+                    Artefacts & qualité du notebook
+                  </div>
+                  <div class="viz-grid">
+                    <!-- Viz 3 : Graphe artefacts-code -->
+                    <div class="viz-placeholder">
+                      <div class="viz-title">
+                        Graphe artefacts ↔ cellules de code
+                      </div>
+                      <div class="viz-caption">
+                        Node-Link simplifié montrant quelles cellules produisent
+                        quels artefacts : datasets nettoyés, modèles, métriques,
+                        visualisations.
+                      </div>
+                      <div class="viz-placeholder-box"></div>
+                      <div class="viz-caption">
+                        Permet de vérifier la traçabilité : chaque métrique utilisée
+                        dans le rapport renvoie à une cellule précise.
+                      </div>
+                      <span class="badge-soft">Axe 2</span>
+                    </div>
+
+                    <!-- Viz 4 : Radar sonar-like -->
+                    <div class="viz-placeholder">
+                      <div class="viz-title">
+                        Radar de qualité “sonar-like”
+                      </div>
+                      <div class="viz-caption">
+                        Diagramme radar synthétisant plusieurs dimensions :
+                        documentation, structure, reproductibilité, gestion des
+                        artefacts, complexité.
+                      </div>
+                      <div class="viz-placeholder-box"></div>
+                      <div class="viz-caption">
+                        Inspiré des analyses SonarQube · met en évidence les forces
+                        et faiblesses pédagogiques du notebook.
+                      </div>
+                      <span class="badge-soft">Axe 5</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section intégration globale -->
+              <div>
+                <div class="report-section-title">
+                  Intégration globale & comparaison A/B
+                </div>
+                <div class="artefact-item">
+                  <div class="artefact-item-main">
+                    <div class="artefact-type">Tableau</div>
+                    <div class="artefact-name">
+                      Tableau comparatif A vs B vs baseline
+                    </div>
+                    <div class="artefact-meta">
+                      • Score de performance (ex : F1) ·
+                      • Indicateurs de qualité (radar sonar-like) ·
+                      • Nombre d’artefacts correctement documentés ·
+                      • Présence ou non de pipeline structuré.
+                    </div>
+                  </div>
+                  <span class="badge-soft">Axe 1 & 4</span>
+                </div>
+                <div class="hint" style="margin-top: 6px;">
+                  Dans le rapport réel, ces éléments seraient exportés sous forme
+                  de figures (PNG/SVG) et de texte. L’enseignant pourrait les
+                  utiliser pour illustrer un feedback à l’élève, un corrigé
+                  collectif ou un support de cours.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // --- Données de maquette (fictives) ---
+    const runs = [
+      {
+        id: "run-01",
+        label: "Notebook étudiant A",
+        score: "F1 = 0.91",
+        date: "Hier",
+      },
+      {
+        id: "run-02",
+        label: "Notebook étudiant B",
+        score: "F1 = 0.84",
+        date: "Il y a 2 jours",
+      },
+      {
+        id: "run-03",
+        label: "Baseline enseignant",
+        score: "F1 = 0.88",
+        date: "Référence",
+      },
+    ];
+
+    const steps = [
+      {
+        id: "data",
+        label: "Chargement des données",
+        short: "Étape 1",
+        intent: "Comprendre la source des données",
+        tags: ["import", "schéma", "taille du dataset"],
+        storyA:
+          "Le notebook commence par charger les données brutes depuis un fichier CSV. L’élève vérifie rapidement le nombre de lignes et de colonnes, mais ne documente pas encore la signification de chaque variable.",
+        storyB:
+          "Dans ce notebook, l’élève ajoute un court paragraphe expliquant l’origine des données et le sens de quelques colonnes clés. La lecture est plus pédagogique pour une correction en cours.",
+        metaA: "Datasets connectés · 1 source principale (non documentée)",
+        metaB: "Datasets connectés · 1 source + explication textuelle",
+        artefactsA: [
+          {
+            type: "Dataset",
+            name: "raw_train.csv",
+            meta: "60k lignes, 24 colonnes",
+            badge: "Brut",
+          },
+          {
+            type: "Aperçu",
+            name: "Dataframe.head()",
+            meta: "5 premières lignes",
+            badge: "Inspection",
+          },
+        ],
+        artefactsB: [
+          {
+            type: "Dataset",
+            name: "raw_train.csv",
+            meta: "60k lignes, 24 colonnes",
+            badge: "Brut",
+          },
+          {
+            type: "Note",
+            name: "markdown_source_donnees.md",
+            meta: "Origine + description",
+            badge: "Doc",
+          },
+        ],
+        cellsA: [
+          {
+            label: "Cellule 3",
+            type: "Code",
+            meta: "Lecture CSV + encodage UTF-8",
+            badge: "import",
+          },
+          {
+            label: "Cellule 4",
+            type: "Code",
+            meta: "Affichage dimensions & colonnes",
+            badge: "sanity check",
+          },
+        ],
+        cellsB: [
+          {
+            label: "Cellule 2",
+            type: "Texte",
+            meta: "Contexte du dataset",
+            badge: "pédagogie",
+          },
+          {
+            label: "Cellule 3",
+            type: "Code",
+            meta: "Lecture CSV",
+            badge: "import",
+          },
+        ],
+      },
+      {
+        id: "prep",
+        label: "Prétraitement",
+        short: "Étape 2",
+        intent: "Nettoyer et structurer les données",
+        tags: ["nettoyage", "features", "split train/test"],
+        storyA:
+          "Cette étape applique un nettoyage minimal : suppression des valeurs manquantes dans 2 colonnes et création d’une nouvelle feature binaire. Le split train/validation est réalisé sans graine fixe, ce qui nuit à la reproductibilité.",
+        storyB:
+          "L’élève B applique un pipeline de prétraitement plus structuré (imputation, encodage, normalisation) et fixe un random_state lors du split. Le résultat est plus stable et mieux justifié dans le texte.",
+        metaA: "2 features dérivées · 1 split train/val (non reproductible)",
+        metaB: "Pipeline complet · split reproductible (random_state=42)",
+        artefactsA: [
+          {
+            type: "Dataset",
+            name: "train_clean.csv",
+            meta: "58k lignes, 26 colonnes",
+            badge: "Prétraité",
+          },
+          {
+            type: "Dataset",
+            name: "val_clean.csv",
+            meta: "2k lignes, 26 colonnes",
+            badge: "Validation",
+          },
+        ],
+        artefactsB: [
+          {
+            type: "Dataset",
+            name: "train_preprocessed.parquet",
+            meta: "Pipeline scikit-learn",
+            badge: "Pipeline",
+          },
+          {
+            type: "Dataset",
+            name: "val_preprocessed.parquet",
+            meta: "Random_state=42",
+            badge: "Reproductible",
+          },
+        ],
+        cellsA: [
+          {
+            label: "Cellule 7",
+            type: "Code",
+            meta: "Gestion des NaN",
+            badge: "data quality",
+          },
+          {
+            label: "Cellule 9",
+            type: "Code",
+            meta: "Création feature dérivée",
+            badge: "feature engineering",
+          },
+          {
+            label: "Cellule 10",
+            type: "Code",
+            meta: "Train/val split sans random_state",
+            badge: "warning",
+          },
+        ],
+        cellsB: [
+          {
+            label: "Cellule 8",
+            type: "Code",
+            meta: "Pipeline ColumnTransformer",
+            badge: "bonne pratique",
+          },
+          {
+            label: "Cellule 9",
+            type: "Code",
+            meta: "Train/val split avec random_state",
+            badge: "reproductible",
+          },
+        ],
+      },
+      {
+        id: "train",
+        label: "Entraînement",
+        short: "Étape 3",
+        intent: "Former un premier modèle de base",
+        tags: ["baseline", "hyperparamètres", "itérations"],
+        storyA:
+          "Un modèle RandomForest est entraîné avec les hyperparamètres par défaut. L’élève lance plusieurs essais manuellement, sans enregistrer systématiquement les résultats.",
+        storyB:
+          "L’élève B utilise une GridSearchCV avec suivi des scores et sauvegarde le meilleur modèle avec sa configuration. L’histoire de l’entraînement est plus facile à rejouer et expliquer.",
+        metaA: "3 runs successifs · 1 modèle retenu (paramètres implicites)",
+        metaB: "Recherche systématique · meilleur modèle identifié",
+        artefactsA: [
+          {
+            type: "Modèle",
+            name: "rf_baseline.pkl",
+            meta: "max_depth=None, n_estimators=100",
+            badge: "Baseline",
+          },
+          {
+            type: "Métrique",
+            name: "val_f1 = 0.91",
+            meta: "Calculée sur val_clean.csv",
+            badge: "Score clé",
+          },
+        ],
+        artefactsB: [
+          {
+            type: "Modèle",
+            name: "rf_best.pkl",
+            meta: "Best params issus de GridSearch",
+            badge: "Optimisé",
+          },
+          {
+            type: "Table",
+            name: "cv_results.csv",
+            meta: "Scores par config",
+            badge: "Traçabilité",
+          },
+        ],
+        cellsA: [
+          {
+            label: "Cellule 15",
+            type: "Code",
+            meta: "Définition du modèle",
+            badge: "model",
+          },
+          {
+            label: "Cellule 16",
+            type: "Code",
+            meta: "Fit sur train_clean",
+            badge: "training",
+          },
+        ],
+        cellsB: [
+          {
+            label: "Cellule 14",
+            type: "Code",
+            meta: "Définition de la grille",
+            badge: "search",
+          },
+          {
+            label: "Cellule 15",
+            type: "Code",
+            meta: "GridSearchCV + fit",
+            badge: "training",
+          },
+        ],
+      },
+      {
+        id: "eval",
+        label: "Évaluation",
+        short: "Étape 4",
+        intent: "Comprendre les forces et limites du modèle",
+        tags: ["courbes", "erreurs", "comparaison"],
+        storyA:
+          "Le notebook affiche une matrice de confusion et quelques exemples d’erreurs typiques, sans comparaison à une baseline simple.",
+        storyB:
+          "Le notebook B compare les scores de plusieurs modèles (baseline, RF, XGBoost) et commente les écarts de performance. La narration aide l’enseignant à comprendre la démarche de l’élève.",
+        metaA: "1 matrice de confusion · 3 exemples textuels",
+        metaB: "Tableau comparatif · 2 matrices de confusion",
+        artefactsA: [
+          {
+            type: "Visualisation",
+            name: "Confusion matrix",
+            meta: "Classe positive sous-évaluée",
+            badge: "Diagnostic",
+          },
+          {
+            type: "Métrique",
+            name: "classification_report.txt",
+            meta: "Precision/Recall/F1",
+            badge: "Texte",
+          },
+        ],
+        artefactsB: [
+          {
+            type: "Table",
+            name: "summary_scores.csv",
+            meta: "Baseline vs RF vs XGB",
+            badge: "Comparaison",
+          },
+          {
+            type: "Visualisation",
+            name: "Courbe ROC",
+            meta: "ROC pour modèle final",
+            badge: "Analyse",
+          },
+        ],
+        cellsA: [
+          {
+            label: "Cellule 21",
+            type: "Code",
+            meta: "Matrice de confusion",
+            badge: "plot",
+          },
+          {
+            label: "Cellule 22",
+            type: "Texte",
+            meta: "Commentaires sur les erreurs",
+            badge: "analyse",
+          },
+        ],
+        cellsB: [
+          {
+            label: "Cellule 20",
+            type: "Code",
+            meta: "Comparaison des modèles",
+            badge: "benchmark",
+          },
+          {
+            label: "Cellule 22",
+            type: "Code",
+            meta: "Courbe ROC",
+            badge: "plot",
+          },
+        ],
+      },
+      {
+        id: "report",
+        label: "Reporting & conclusion",
+        short: "Étape 5",
+        intent: "Synthétiser les décisions et prochaines pistes",
+        tags: ["conclusion", "limites", "pistes futures"],
+        storyA:
+          "La conclusion résume le score obtenu et propose deux axes d’amélioration, mais sans citer explicitement les cellules ou artefacts importants.",
+        storyB:
+          "L’élève B structure la conclusion en bullets reliés aux étapes du workflow (prétraitement, modèle, évaluation) et renvoie vers des cellules précises. Cela facilite la discussion en cours.",
+        metaA: "1 section texte · 0 export automatique",
+        metaB: "Conclusion structurée · export possible en PDF",
+        artefactsA: [
+          {
+            type: "Rapport",
+            name: "notes_conclusion.md",
+            meta: "Résumé libre",
+            badge: "Narration",
+          },
+        ],
+        artefactsB: [
+          {
+            type: "Rapport",
+            name: "rapport_final.ipynb",
+            meta: "Sections clairement identifiées",
+            badge: "Pédagogique",
+          },
+        ],
+        cellsA: [
+          {
+            label: "Cellule 25",
+            type: "Texte",
+            meta: "Conclusion & limitations",
+            badge: "summary",
+          },
+        ],
+        cellsB: [
+          {
+            label: "Cellule 24",
+            type: "Texte",
+            meta: "Conclusion structurée",
+            badge: "summary",
+          },
+        ],
+      },
+    ];
+
+    // --- État courant ---
+    let primaryRunId = "run-01"; // par défaut, notebook étudiant A
+    let secondaryRunId = null;   // comparaison désactivée par défaut
+    let activeStepId = "prep";   // on commence sur le prétraitement
+
+    // --- Sélecteurs DOM ---
+    const runListPrimaryEl = document.getElementById("run-list-primary");
+    const runListSecondaryEl = document.getElementById("run-list-secondary");
+    const teacherContextEl = document.getElementById("teacher-context");
+    const timelineEl = document.getElementById("timeline");
+    const timelineMetaEl = document.getElementById("timeline-meta");
+
+    const storyTitleAEl = document.getElementById("story-title-a");
+    const storyMetaAEl = document.getElementById("story-meta-a");
+    const storyTextAEl = document.getElementById("story-text-a");
+    const storyTagsAEl = document.getElementById("story-tags-a");
+
+    const storyColumnBEl = document.getElementById("story-column-b");
+    const storyTitleBEl = document.getElementById("story-title-b");
+    const storyMetaBEl = document.getElementById("story-meta-b");
+    const storyTextBEl = document.getElementById("story-text-b");
+    const storyTagsBEl = document.getElementById("story-tags-b");
+
+    const artefactListAEl = document.getElementById("artefact-list-a");
+    const cellListAEl = document.getElementById("cell-list-a");
+
+    const reportCardEl = document.getElementById("report-card");
+    const toggleReportBtnEl = document.getElementById("toggle-report-btn");
+
+    // --- Rendu des runs ---
+    function renderRuns() {
+      runListPrimaryEl.innerHTML = "";
+      runListSecondaryEl.innerHTML = "";
+
+      runs.forEach((run) => {
+        // Liste principale (A)
+        const itemA = document.createElement("button");
+        itemA.type = "button";
+        itemA.className =
+          "run-item" + (run.id === primaryRunId ? " run-item--primary" : "");
+        itemA.setAttribute("aria-label", `Choisir ${run.label} comme notebook principal A`);
+        itemA.innerHTML = `
+          <span><span class="run-label-pill">A</span>${run.label}</span>
+          <small>${run.score}</small>
+        `;
+        itemA.addEventListener("click", () => {
+          primaryRunId = run.id;
+          // Si B == A, on efface B
+          if (secondaryRunId === primaryRunId) {
+            secondaryRunId = null;
+          }
+          renderAll();
+        });
+        runListPrimaryEl.appendChild(itemA);
+
+        // Liste secondaire (B optionnel)
+        const itemB = document.createElement("button");
+        itemB.type = "button";
+        itemB.className =
+          "run-item" +
+          (run.id === secondaryRunId ? " run-item--secondary" : "");
+        itemB.setAttribute(
+          "aria-label",
+          `Activer/désactiver ${run.label} comme notebook de comparaison B`
+        );
+        itemB.innerHTML = `
+          <span><span class="run-label-pill">B</span>${run.label}</span>
+          <small>${run.score}</small>
+        `;
+        itemB.addEventListener("click", () => {
+          if (secondaryRunId === run.id) {
+            // Re-cliquer = désélectionner B
+            secondaryRunId = null;
+          } else if (primaryRunId === run.id) {
+            // B ne peut pas être le même que A
+            secondaryRunId = null;
+          } else {
+            secondaryRunId = run.id;
+          }
+          renderAll();
+        });
+        runListSecondaryEl.appendChild(itemB);
+      });
+    }
+
+    // --- Contexte A/B (top) ---
+    function renderTeacherContext() {
+      teacherContextEl.innerHTML = "";
+      const runA = runs.find((r) => r.id === primaryRunId);
+      const runB = secondaryRunId
+        ? runs.find((r) => r.id === secondaryRunId)
+        : null;
+
+      const pillA = document.createElement("div");
+      pillA.className = "teacher-context-pill";
+      pillA.innerHTML = `<strong>A</strong> · ${runA.label} (${runA.score})`;
+      teacherContextEl.appendChild(pillA);
+
+      if (runB) {
+        const pillB = document.createElement("div");
+        pillB.className = "teacher-context-pill";
+        pillB.innerHTML = `<strong>B</strong> · ${runB.label} (${runB.score})`;
+        teacherContextEl.appendChild(pillB);
+
+        const text = document.createElement("span");
+        text.textContent =
+          "Comparaison A/B active : même étape de workflow pour deux notebooks.";
+        teacherContextEl.appendChild(text);
+      } else {
+        const text = document.createElement("span");
+        text.textContent =
+          "Aucun notebook B sélectionné : vous suivez l’histoire du notebook A uniquement.";
+        teacherContextEl.appendChild(text);
+      }
+    }
+
+    // --- Timeline ---
+    function renderTimeline() {
+      timelineEl.innerHTML = "";
+      steps.forEach((step) => {
+        const stepEl = document.createElement("button");
+        stepEl.type = "button";
+        stepEl.className =
+          "timeline-step" +
+          (step.id === activeStepId ? " timeline-step--active" : "");
+        stepEl.setAttribute("aria-label", `Aller à l'étape : ${step.label}`);
+        stepEl.innerHTML = `
+          <div class="timeline-step-label">${step.label}</div>
+          <div class="timeline-step-meta">${step.short}</div>
+        `;
+        stepEl.addEventListener("click", () => {
+          activeStepId = step.id;
+          renderAll();
+        });
+        timelineEl.appendChild(stepEl);
+      });
+
+      const active = steps.find((s) => s.id === activeStepId);
+      if (active) {
+        timelineMetaEl.textContent = `Étape active : ${active.label}`;
+      }
+    }
+
+    // --- Détails story + artefacts + cells ---
+    function renderDetails() {
+      const step = steps.find((s) => s.id === activeStepId);
+      if (!step) return;
+
+      // Notebook A (toujours)
+      storyTitleAEl.textContent = step.label;
+      storyMetaAEl.textContent = step.metaA;
+      storyTextAEl.textContent = step.storyA;
+      storyTagsAEl.innerHTML = "";
+      step.tags.forEach((tag) => {
+        const tagEl = document.createElement("span");
+        tagEl.className = "story-tag";
+        tagEl.textContent = tag;
+        storyTagsAEl.appendChild(tagEl);
+      });
+
+      artefactListAEl.innerHTML = "";
+      step.artefactsA.forEach((a) => {
+        const el = document.createElement("div");
+        el.className = "artefact-item";
+        el.innerHTML = `
+          <div class="artefact-item-main">
+            <div class="artefact-type">${a.type}</div>
+            <div class="artefact-name">${a.name}</div>
+            <div class="artefact-meta">${a.meta}</div>
+          </div>
+          <span class="badge-soft">${a.badge}</span>
+        `;
+        artefactListAEl.appendChild(el);
+      });
+
+      cellListAEl.innerHTML = "";
+      step.cellsA.forEach((c) => {
+        const el = document.createElement("div");
+        el.className = "cell-item";
+        el.innerHTML = `
+          <div class="cell-item-main">
+            <div class="cell-type">${c.type}</div>
+            <div class="cell-label">${c.label}</div>
+            <div class="cell-meta">${c.meta}</div>
+          </div>
+          <span class="badge-soft">${c.badge}</span>
+        `;
+        cellListAEl.appendChild(el);
+      });
+
+      // Notebook B (uniquement si un run B est sélectionné)
+      const hasB = Boolean(secondaryRunId);
+      if (!hasB) {
+        storyColumnBEl.style.opacity = 0.7;
+        storyTitleBEl.textContent = "Aucune comparaison activée";
+        storyMetaBEl.textContent =
+          "Sélectionne un notebook B dans la colonne de gauche pour comparer cette étape avec un autre élève.";
+        storyTextBEl.textContent =
+          "Cette colonne illustre la zone où apparaîtra l’histoire du notebook B pour la même étape de workflow. Elle permettra à l’enseignant de montrer la différence entre deux approches.";
+        storyTagsBEl.innerHTML = "";
+        return;
+      }
+
+      storyColumnBEl.style.opacity = 1;
+      storyTitleBEl.textContent = step.label;
+      storyMetaBEl.textContent = step.metaB;
+      storyTextBEl.textContent = step.storyB;
+      storyTagsBEl.innerHTML = "";
+      step.tags.forEach((tag) => {
+        const tagEl = document.createElement("span");
+        tagEl.className = "story-tag";
+        tagEl.textContent = tag;
+        storyTagsBEl.appendChild(tagEl);
+      });
+    }
+
+    // --- Rapport : toggle preview ---
+    function setupReportToggle() {
+      toggleReportBtnEl.addEventListener("click", () => {
+        const isHidden = reportCardEl.classList.contains("hidden");
+        if (isHidden) {
+          reportCardEl.classList.remove("hidden");
+          toggleReportBtnEl.textContent = "Masquer la prévisualisation";
+        } else {
+          reportCardEl.classList.add("hidden");
+          toggleReportBtnEl.textContent = "Prévisualiser le futur rapport";
+        }
+      });
+    }
+
+    function renderAll() {
+      renderRuns();
+      renderTeacherContext();
+      renderTimeline();
+      renderDetails();
+    }
+
+    // Initialisation
+    renderAll();
+    setupReportToggle();
+  </script>
+</body>
+</html>

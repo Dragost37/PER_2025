@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Galileo – Vue Enseignant (classe)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #f5f5f5;
+      --panel: #ffffff;
+      --border: #d4d4d4;
+      --accent: #111827;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --radius-lg: 12px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #e5e7eb 0, #f9fafb 40%, #f3f4f6 100%);
+      color: var(--text-main);
+    }
+
+    .app {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.15);
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+
+    .subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      background: #f9fafb;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .pill-strong {
+      border-color: #111827;
+      color: #111827;
+      background: #e5e7eb;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 1000px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--panel);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      margin-top: 8px;
+    }
+
+    th, td {
+      border-bottom: 1px solid #e5e7eb;
+      padding: 6px 4px;
+      text-align: left;
+    }
+
+    th {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    tr:hover td {
+      background: #f9fafb;
+    }
+
+    .badge {
+      border-radius: 999px;
+      padding: 2px 6px;
+      border: 1px solid var(--border);
+      font-size: 0.7rem;
+      background: #f9fafb;
+    }
+
+    .placeholder {
+      margin-top: 8px;
+      padding: 10px;
+      font-size: 0.8rem;
+      border-radius: 10px;
+      border: 1px dashed var(--border);
+      background: #f9fafb;
+      color: var(--text-muted);
+    }
+
+    .note-input {
+      width: 60px;
+      padding: 2px 4px;
+      font-size: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .link {
+      font-size: 0.75rem;
+      color: #1f2937;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div>
+        <h1>Vue Enseignant – Classe</h1>
+        <p class="subtitle">
+          Comparez les notebooks des étudiants, visualisez leur positionnement et attribuez une note.
+        </p>
+      </div>
+      <nav class="nav">
+        <a href="homepage.html" class="pill">Accueil</a>
+        <span class="pill pill-strong">Mode Enseignant</span>
+        <a href="student_dashboard.html" class="pill">Mode Étudiant</a>
+        <a href="researcher_dashboard.html" class="pill">Mode Chercheur</a>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <!-- Tableau des étudiants -->
+      <section class="card">
+        <h2>Notebooks des étudiants</h2>
+        <p>
+          Vue synthétique des scores de chaque notebook. Cliquez sur un étudiant pour entrer dans la vue détaillée.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Étudiant</th>
+              <th>Score global</th>
+              <th>Storytelling</th>
+              <th>Patterns</th>
+              <th>Qualité doc</th>
+              <th>Note prof</th>
+              <th>Détails</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Durand Alice</td>
+              <td>0.91</td>
+              <td><span class="badge">Très bon</span></td>
+              <td><span class="badge">Propre</span></td>
+              <td><span class="badge">Complet</span></td>
+              <td><input class="note-input" placeholder="/20" /></td>
+              <td><a href="teacher_student_notebook.html" class="link">Voir</a></td>
+            </tr>
+            <tr>
+              <td>Martin Leo</td>
+              <td>0.78</td>
+              <td><span class="badge">Correct</span></td>
+              <td><span class="badge">Quelques anti-patterns</span></td>
+              <td><span class="badge">Lacunaire</span></td>
+              <td><input class="note-input" placeholder="/20" /></td>
+              <td><a href="teacher_student_notebook.html" class="link">Voir</a></td>
+            </tr>
+            <tr>
+              <td>Nguyen Linh</td>
+              <td>0.84</td>
+              <td><span class="badge">Bon</span></td>
+              <td><span class="badge">OK</span></td>
+              <td><span class="badge">À préciser</span></td>
+              <td><input class="note-input" placeholder="/20" /></td>
+              <td><a href="teacher_student_notebook.html" class="link">Voir</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="placeholder">
+          • Colonnes ajustables (ajouter d’autres métriques)<br />
+          • Tri par score ou par nom<br />
+          • Export de cette vue vers un support de notation
+        </div>
+      </section>
+
+      <!-- Carte comparative / minimap classe -->
+      <section class="card">
+        <h2>Carte de la classe</h2>
+        <p>
+          Visualisation globale permettant de voir comment se positionnent les notebooks les uns par rapport aux autres.
+        </p>
+
+        <div class="placeholder">
+          Placeholder : carte / scatterplot / radar<br />
+          • Chaque point = un notebook<br />
+          • Axe X = score storytelling<br />
+          • Axe Y = qualité patterns<br />
+          • Couleur = qualité documentation<br /><br />
+          Interaction : survol pour voir le nom et le score, clic pour ouvrir la vue détaillée.
+        </div>
+
+        <div class="placeholder" style="margin-top: 10px;">
+          Encadré “Mini-map classe” pour faire le lien avec la dimension “patterns / anti-patterns”.<br />
+          Possibilité d’afficher / masquer certains axes (qualité, storytelling, artefacts, sonar-like).
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
