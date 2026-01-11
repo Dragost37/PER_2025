@@ -16,28 +16,7 @@
 
 <main>
   <div class="container">
-    <h2>Scénario 1 – Résumé narratif avant le code</h2>
-
-    <div class="scenarioBox">
-      <p>
-        Vous ouvrez un notebook de machine learning composé d’environ quarante cellules de code et de visualisations.
-        Avant toute ligne de code, un texte d’une page maximum vous est présenté.
-      </p>
-      <p>Ce texte explique :</p>
-      <ul>
-        <li>le problème initial que le notebook cherche à résoudre,</li>
-        <li>la nature des données utilisées,</li>
-        <li>les grandes étapes suivies dans l’analyse,</li>
-        <li>un point de difficulté rencontré en cours de route,</li>
-        <li>et le résultat final obtenu.</li>
-      </ul>
-      <p>
-        Le texte est rédigé comme un récit continu, sans afficher de code, mais en mentionnant explicitement
-        les décisions prises et les résultats observés. À la fin du texte, le notebook reste accessible cellule par cellule.
-      </p>
-    </div>
-
-    <p class="hint">Passe à la page suivante pour voir le notebook original.</p>
+<p>Le notebook <strong>Titanic – Machine Learning from Disaster</strong> a pour objectif de prédire la survie des passagers du Titanic à partir de données socio-démographiques et de voyage, en formulant le problème comme une tâche de <strong>classification binaire supervisée</strong>. Il débute par l’importation des bibliothèques usuelles (<code>pandas</code>, <code>numpy</code>, <code>matplotlib</code>, <code>seaborn</code>, <code>scikit-learn</code>) et le chargement des jeux de données d’entraînement et de test, dont la structure est vérifiée à l’aide des premières cellules (<code>head()</code>, <code>shape</code>, <code>info()</code>). Une analyse exploratoire détaillée est ensuite menée à travers plusieurs cellules de visualisation afin d’étudier les liens entre la variable cible <code>Survived</code> et des caractéristiques clés telles que le sexe, la classe (<code>Pclass</code>), l’âge et le port d’embarquement, mettant en évidence des tendances fortes (avantage de survie pour les femmes, les passagers de première classe et les plus jeunes). Sur cette base, une phase de prétraitement est mise en place : les variables jugées non pertinentes ou trop incomplètes (<code>Name</code>, <code>Ticket</code>, <code>Cabin</code>) sont supprimées, les valeurs manquantes de <code>Age</code>, <code>Embarked</code> et <code>Fare</code> sont imputées par des statistiques simples (médiane ou mode), et les variables catégorielles (<code>Sex</code>, <code>Embarked</code>) sont encodées par <em>one-hot encoding</em> tandis que les variables numériques sont standardisées. Ces transformations sont regroupées dans un <code>ColumnTransformer</code> intégré à un pipeline <code>scikit-learn</code>, garantissant l’application cohérente du même traitement aux données d’entraînement et de test. Le modèle choisi est une <strong>régression logistique</strong>, entraînée sur les données préparées et évaluée via une validation croisée, donnant une précision d’environ <strong>78 à 80&nbsp;%</strong>, ce qui correspond à une performance de référence solide pour ce problème. Enfin, le pipeline est ré-entraîné sur l’ensemble du jeu d’entraînement afin de produire les prédictions finales sur le jeu de test, lesquelles sont exportées dans un fichier <code>submission.csv</code> prêt à être soumis. Le notebook illustre ainsi un workflow complet et rigoureux de machine learning, allant de l’exploration des données à la génération de prédictions exploitables, tout en restant volontairement simple et pédagogique.</p>
   </div>
 </main>
 
