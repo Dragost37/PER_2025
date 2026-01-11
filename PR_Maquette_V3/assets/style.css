@@ -1,0 +1,147 @@
+:root{
+  --bg:#f7f7f7;
+  --card:#fff;
+  --muted:#666;
+  --border:#ddd;
+  --accent:#4f46e5;
+  --nb-bg:#fafafa;
+  --code-bg:#f0f0f0;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  font-family: system-ui, -apple-system, sans-serif;
+  margin:0;
+  background:var(--bg);
+  color:#111;
+  line-height:1.6;
+}
+
+header{
+  position: sticky;
+  top:0;
+  z-index:5;
+  background: rgba(247,247,247,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 10px 16px;
+}
+
+header .inner{
+  max-width: 900px;
+  margin: 0 auto;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  gap:12px;
+}
+
+header .title{
+  font-size: 14px;
+  color: var(--muted);
+}
+
+header .badge{
+  font-size: 12px;
+  color: var(--muted);
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+main{
+  padding: 26px 16px 96px; /* bottom padding for floating button */
+}
+
+.container{
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 10px;
+  padding: 28px;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+h1,h2{ margin-top:0; }
+
+.scenarioBox{
+  border-left: 6px solid var(--accent);
+  padding-left: 16px;
+  margin-top: 14px;
+}
+
+.hint{
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Notebook styles */
+.notebook{
+  background: var(--nb-bg);
+  border: 1px solid var(--border);
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.cell{
+  margin-bottom: 16px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: #fff;
+}
+
+.cellHeader{
+  font-size: 12px;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+.cell.code{
+  background: var(--code-bg);
+  border-color: rgba(0,0,0,0.08);
+}
+
+.cellContent{
+  white-space: pre-wrap;
+}
+
+.cell.code .cellContent{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+}
+
+/* Floating next button */
+.fab{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 999;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.fab a{
+  display:inline-block;
+  text-decoration:none;
+  background: var(--accent);
+  color: white;
+  padding: 14px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(79,70,229,0.25);
+}
+
+.fab .progress{
+  background: rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.06);
+  color:#111;
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+}
