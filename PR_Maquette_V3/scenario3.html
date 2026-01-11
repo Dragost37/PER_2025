@@ -16,29 +16,23 @@
 
 <main>
   <div class="container">
-    <h2>Scénario 3 – Réorganisation logique d’un notebook désordonné</h2>
+    <section>
+      <p>
+        Le notebook s’inscrit dans le cadre de la compétition <strong>Titanic – Machine Learning from Disaster</strong> et vise à comprendre puis modéliser les facteurs associés à la survie des passagers. L’histoire reconstruite commence par la <strong>compréhension des données</strong>. Le jeu de données d’entraînement contient 891 passagers et 12 variables, avec un âge moyen de 29,7 ans et un taux de survie de 38,3&nbsp;%. L’examen des valeurs manquantes met en évidence que la variable <code>Cabin</code> est absente pour une large majorité des passagers (687 valeurs manquantes), ce qui la rend inutilisable dans l’analyse, tandis que <code>Age</code> comporte 177 valeurs manquantes et <code>Embarked</code> seulement quelques-unes, pouvant être imputées. Les visualisations et statistiques descriptives permettent ensuite d’identifier plusieurs différences dans les résultats de survie&nbsp;: selon l’âge, les passagers plus jeunes survivent davantage&nbsp;; selon le sexe, les femmes présentent des taux de survie supérieurs à ceux des hommes&nbsp;; et selon la combinaison du sexe et de la classe, les femmes affichent des taux de survie plus élevés dans toutes les classes. L’analyse du tarif montre également une association entre le montant du billet et la survie, en particulier chez les femmes, et les analyses croisées âge, sexe et classe indiquent que la classe passager est liée à la survivabilité et à l’âge des survivantes.
+      </p>
 
-    <div class="scenarioBox">
       <p>
-        Le notebook original contient des cellules répétées, des résultats intermédiaires contradictoires
-        et un ordre d’exécution difficile à suivre. Certaines cellules ont été relancées plusieurs fois,
-        d’autres semblent isolées.
+        À partir de ces constats, le raisonnement se poursuit par le <strong>choix des transformations et le nettoyage des données</strong>. Les colonnes <code>Cabin</code>, <code>Ticket</code> et <code>Name</code> sont supprimées, les âges manquants sont imputés à l’aide de médianes calculées par groupe de sexe et de classe, les valeurs manquantes de <code>Embarked</code> sont remplacées par le mode et celles de <code>Fare</code> par la médiane. Des variables dérivées liées à la structure familiale (<code>FamilySize</code> et <code>IsAlone</code>) sont ajoutées, puis les variables catégorielles sont encodées. Une vérification finale confirme l’absence de valeurs manquantes dans le jeu de données préparé.
       </p>
-      <p>
-        L’histoire qui accompagne ce notebook ne reprend pas cet ordre. Elle reconstruit un chemin logique cohérent :
-      </p>
-      <ul>
-        <li>compréhension des données,</li>
-        <li>choix des transformations,</li>
-        <li>entraînement des modèles,</li>
-        <li>évaluation des résultats.</li>
-      </ul>
-      <p>
-        Le texte présente ces étapes comme si le notebook avait été écrit de manière linéaire, même si ce n’est pas le cas dans le code.
-      </p>
-    </div>
 
-    <p class="hint">Passe à la page suivante pour voir le notebook original.</p>
+      <p>
+        La narration se poursuit avec la phase d’<strong>entraînement des modèles</strong>. Une régression logistique est d’abord entraînée sur les données nettoyées et atteint une précision de 81&nbsp;%. Un second modèle, de type <strong>Random Forest</strong>, est ensuite testé et obtient une précision légèrement supérieure selon les résultats affichés. L’analyse de l’importance des variables issue du Random Forest met en évidence que le tarif, le sexe et l’âge sont les variables les plus influentes, suivies de la classe passager, tandis que la structure familiale et le port d’embarquement contribuent de manière plus modérée.
+      </p>
+
+      <p>
+        Enfin, l’histoire se conclut par la <strong>préparation des données de test</strong> et la <strong>production des résultats finaux</strong>. Le jeu de test est soumis aux mêmes étapes de nettoyage, d’imputation, de création de variables et d’encodage que le jeu d’entraînement, afin d’assurer la cohérence du processus. Le modèle est ensuite entraîné sur l’ensemble des données d’entraînement et utilisé pour générer les prédictions finales, lesquelles sont enregistrées dans un fichier <code>submission.csv</code> contenant les prédictions de survie prêtes à être soumises.
+      </p>
+    </section>
   </div>
 </main>
 

@@ -17,26 +17,26 @@
 <main>
   <div class="container">
     <section>
-  <p>
-    L’analyse montre que la survie des passagers du Titanic dépend fortement du sexe, de la classe sociale, du tarif payé et de l’âge, et qu’un modèle de type <strong>Random Forest</strong> obtient de meilleures performances qu’une <strong>régression logistique</strong> sur ces données, bien que les limites du jeu de données restent présentes.
-  </p>
-  
-  <p>
-    Le notebook débute par une phase d’exploration des données visant à identifier des tendances générales. Le jeu d’entraînement contient 891 passagers, avec un taux de survie de 38,3&nbsp;% et un âge moyen de 29,7 ans. L’analyse des valeurs manquantes met en évidence une forte absence de données pour la variable <code>Cabin</code>, qui est jugée inutilisable, tandis que les valeurs manquantes de <code>Age</code> et <code>Embarked</code> peuvent être imputées. Les visualisations exploratoires montrent des différences marquées de survie selon l’âge, le sexe et la classe&nbsp;: les passagers plus jeunes survivent davantage, les femmes présentent des taux de survie supérieurs aux hommes, et cet avantage persiste dans toutes les classes, avec un effet notable de la classe passager. L’analyse du tarif indique également une association entre le montant payé et la survie, en particulier chez les femmes.
-  </p>
+      <p>
+        L’analyse montre que la survie des passagers du Titanic dépend fortement du sexe, de la classe sociale, du tarif payé et de l’âge, et qu’un modèle de type <strong>Random Forest</strong> obtient de meilleures performances qu’une <strong>régression logistique</strong> sur ces données, bien que les limites du jeu de données restent présentes.
+      </p>
+      
+      <p>
+        Le notebook débute par une phase d’exploration des données visant à identifier des tendances générales. Le jeu d’entraînement contient 891 passagers, avec un taux de survie de 38,3&nbsp;% et un âge moyen de 29,7 ans. L’analyse des valeurs manquantes met en évidence une forte absence de données pour la variable <code>Cabin</code>, qui est jugée inutilisable, tandis que les valeurs manquantes de <code>Age</code> et <code>Embarked</code> peuvent être imputées. Les visualisations exploratoires montrent des différences marquées de survie selon l’âge, le sexe et la classe&nbsp;: les passagers plus jeunes survivent davantage, les femmes présentent des taux de survie supérieurs aux hommes, et cet avantage persiste dans toutes les classes, avec un effet notable de la classe passager. L’analyse du tarif indique également une association entre le montant payé et la survie, en particulier chez les femmes.
+      </p>
 
-  <p>
-    Sur la base de ces constats, une phase de nettoyage et de préparation des données est mise en œuvre. Les colonnes <code>Cabin</code>, <code>Ticket</code> et <code>Name</code> sont supprimées, l’âge est imputé à l’aide de médianes calculées par groupe de sexe et de classe, <code>Embarked</code> est complété par le mode et <code>Fare</code> par la médiane. Des variables dérivées liées à la structure familiale (<code>FamilySize</code> et <code>IsAlone</code>) sont ajoutées, et les variables catégorielles sont encodées avant de vérifier l’absence de valeurs manquantes.
-  </p>
+      <p>
+        Sur la base de ces constats, une phase de nettoyage et de préparation des données est mise en œuvre. Les colonnes <code>Cabin</code>, <code>Ticket</code> et <code>Name</code> sont supprimées, l’âge est imputé à l’aide de médianes calculées par groupe de sexe et de classe, <code>Embarked</code> est complété par le mode et <code>Fare</code> par la médiane. Des variables dérivées liées à la structure familiale (<code>FamilySize</code> et <code>IsAlone</code>) sont ajoutées, et les variables catégorielles sont encodées avant de vérifier l’absence de valeurs manquantes.
+      </p>
 
-  <p>
-    La phase de modélisation commence par l’entraînement d’une régression logistique standardisée, qui atteint une précision de 81&nbsp;%. Un modèle de type Random Forest est ensuite testé et obtient une précision légèrement supérieure. L’analyse de l’importance des variables issue du Random Forest met en avant le tarif, le sexe et l’âge comme variables les plus influentes, suivies de la classe passager, tandis que la structure familiale et le port d’embarquement jouent un rôle plus modéré.
-  </p>
+      <p>
+        La phase de modélisation commence par l’entraînement d’une régression logistique standardisée, qui atteint une précision de 81&nbsp;%. Un modèle de type Random Forest est ensuite testé et obtient une précision légèrement supérieure. L’analyse de l’importance des variables issue du Random Forest met en avant le tarif, le sexe et l’âge comme variables les plus influentes, suivies de la classe passager, tandis que la structure familiale et le port d’embarquement jouent un rôle plus modéré.
+      </p>
 
-  <p>
-    Enfin, le notebook décrit la préparation du jeu de test en appliquant strictement les mêmes étapes de nettoyage et de transformation que pour le jeu d’entraînement, puis l’entraînement final du modèle retenu et la génération d’un fichier <code>submission.csv</code> contenant les prédictions de survie, prêt à être soumis.
-  </p>
-</section>
+      <p>
+        Enfin, le notebook décrit la préparation du jeu de test en appliquant strictement les mêmes étapes de nettoyage et de transformation que pour le jeu d’entraînement, puis l’entraînement final du modèle retenu et la génération d’un fichier <code>submission.csv</code> contenant les prédictions de survie, prêt à être soumis.
+      </p>
+    </section>
 
   </div>
 </main>

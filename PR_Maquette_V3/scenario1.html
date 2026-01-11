@@ -16,7 +16,53 @@
 
 <main>
   <div class="container">
-    <p>Ce notebook s’inscrit dans le cadre de la compétition <strong>Titanic – Machine Learning from Disaster</strong> et commence par une phase d’<strong>Exploratory Data Analysis</strong> visant à identifier des tendances initiales dans les données. Le jeu de données d’entraînement contient 891 passagers et 12 variables, avec un âge moyen de 29,7 ans et un taux de survie de 38,3 %. L’analyse des valeurs manquantes montre que la variable <code>Age</code> comporte 177 valeurs manquantes et que la variable <code>Cabin</code>, manquante pour 687 passagers, est inutilisable pour l’analyse, tandis que les valeurs manquantes de <code>Embarked</code> peuvent être imputées par le mode. Les visualisations et statistiques descriptives présentées indiquent que les résultats de survie diffèrent selon plusieurs facteurs : les analyses par âge montrent que les passagers plus jeunes étaient plus susceptibles de survivre, les analyses par sexe indiquent que les femmes étaient plus susceptibles de survivre que les hommes, et les analyses combinant le sexe et la classe révèlent que les femmes, toutes classes confondues, présentent des taux de survie plus élevés. Les analyses tarifaires montrent également une association entre le montant du billet et la survie, en particulier chez les femmes, et les analyses croisées âge, sexe et classe suggèrent que la classe passager est liée à la survivabilité et à l’âge des survivantes. Sur la base de cette exploration, une phase de <strong>Data Cleaning</strong> est menée : les colonnes <code>Cabin</code>, <code>Ticket</code> et <code>Name</code> sont supprimées, les âges manquants sont imputés à l’aide des médianes groupées par sexe et classe, les valeurs manquantes de <code>Embarked</code> sont complétées par le mode, des variables dérivées liées à la famille (<code>FamilySize</code>, <code>IsAlone</code>) sont créées, les valeurs manquantes de <code>Fare</code> sont remplacées par la médiane et les variables catégorielles sont encodées. Après validation de l’absence de valeurs manquantes, une phase de <strong>Modeling</strong> est engagée : une régression logistique est entraînée et atteint une précision de 81 %, suivie d’un modèle de type Random Forest, légèrement plus précis selon les résultats affichés. L’analyse d’importance des variables du Random Forest montre que le tarif, le sexe et l’âge sont les variables les plus influentes, suivies de la classe passager, tandis que la structure familiale et le port d’embarquement contribuent plus modestement. Enfin, le notebook décrit la préparation du jeu de test en appliquant les mêmes étapes de nettoyage et de transformation que pour l’entraînement, puis l’entraînement final du modèle et la génération d’un fichier <code>submission.csv</code> contenant les prédictions de survie prêtes à être soumises.</p>
+    <section>
+      <h2>Titanic – Machine Learning from Disaster</h2>
+
+      <p>
+        Ce notebook s’inscrit dans le cadre de la compétition
+        <strong>Titanic – Machine Learning from Disaster</strong> et commence par une phase
+        d’<strong>Exploratory Data Analysis</strong> visant à identifier des tendances initiales dans les données.
+        Le jeu de données d’entraînement contient 891 passagers et 12 variables, avec un âge moyen de 29,7 ans et un taux de survie de 38,3 %.
+      </p>
+
+      <p>
+        L’analyse des valeurs manquantes montre que la variable <code>Age</code> comporte 177 valeurs manquantes et que la variable
+        <code>Cabin</code>, manquante pour 687 passagers, est inutilisable pour l’analyse, tandis que les valeurs manquantes de
+        <code>Embarked</code> peuvent être imputées par le mode.
+        Les visualisations et statistiques descriptives présentées indiquent que les résultats de survie diffèrent selon plusieurs facteurs :
+        les analyses par âge montrent que les passagers plus jeunes étaient plus susceptibles de survivre, les analyses par sexe indiquent
+        que les femmes étaient plus susceptibles de survivre que les hommes, et les analyses combinant le sexe et la classe révèlent que
+        les femmes, toutes classes confondues, présentent des taux de survie plus élevés.
+      </p>
+
+      <p>
+        Les analyses tarifaires montrent également une association entre le montant du billet et la survie, en particulier chez les femmes,
+        et les analyses croisées âge, sexe et classe suggèrent que la classe passager est liée à la survivabilité et à l’âge des survivantes.
+        Sur la base de cette exploration, une phase de <strong>Data Cleaning</strong> est menée.
+      </p>
+
+      <p>
+        Les colonnes <code>Cabin</code>, <code>Ticket</code> et <code>Name</code> sont supprimées, les âges manquants sont imputés à l’aide
+        des médianes groupées par sexe et classe, les valeurs manquantes de <code>Embarked</code> sont complétées par le mode,
+        des variables dérivées liées à la famille (<code>FamilySize</code>, <code>IsAlone</code>) sont créées, les valeurs manquantes de
+        <code>Fare</code> sont remplacées par la médiane et les variables catégorielles sont encodées.
+      </p>
+
+      <p>
+        Après validation de l’absence de valeurs manquantes, une phase de <strong>Modeling</strong> est engagée :
+        une régression logistique est entraînée et atteint une précision de 81 %, suivie d’un modèle de type Random Forest,
+        légèrement plus précis selon les résultats affichés.
+        L’analyse d’importance des variables du Random Forest montre que le tarif, le sexe et l’âge sont les variables les plus influentes,
+        suivies de la classe passager, tandis que la structure familiale et le port d’embarquement contribuent plus modestement.
+      </p>
+
+      <p>
+        Enfin, le notebook décrit la préparation du jeu de test en appliquant les mêmes étapes de nettoyage et de transformation que pour
+        l’entraînement, puis l’entraînement final du modèle et la génération d’un fichier
+        <code>submission.csv</code> contenant les prédictions de survie prêtes à être soumises.
+      </p>
+    </section>
   </div>
 </main>
 
