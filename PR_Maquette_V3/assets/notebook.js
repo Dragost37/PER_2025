@@ -7,6 +7,18 @@ function getCellSource(cell) {
   return "";
 }
 
+// Rend Markdown → HTML (sécurisé)
+function renderMarkdown(mdText) {
+  // marked.parse() produit de l'HTML
+  const rawHtml = window.marked.parse(mdText, {
+    gfm: true,
+    breaks: true
+  });
+
+  // Nettoie l'HTML pour éviter injections
+  return window.DOMPurify.sanitize(rawHtml);
+}
+
 async function loadNotebook(url) {
   const res = await fetch(url, { cache: "no-store" });
   if (!res.ok) throw new Error(`Fetch failed (${res.status}) on ${url}`);
@@ -35,10 +47,20 @@ function renderNotebook(containerId, nb) {
 
     const content = document.createElement("div");
     content.className = "cellContent";
+
     const text = getCellSource(cell);
 
-    // Markdown affiché brut (simple). Si tu veux un rendu markdown, je te mets marked.js.
-    content.textContent = text;
+    if (cell.cell_type === "markdown") {
+      // ✅ Markdown rendu en HTML
+      content.innerHTML = renderMarkdown(text);
+      wrapper.classList.add("markdown");
+    } else if (cell.cell_type === "code") {
+      // Code en texte brut
+      content.textContent = text;
+      wrapper.classList.add("code");
+    } else {
+      content.textContent = text;
+    }
 
     wrapper.appendChild(content);
     container.appendChild(wrapper);
@@ -48,6 +70,12 @@ function renderNotebook(containerId, nb) {
 async function initNotebookPage() {
   const target = document.getElementById("notebook");
   if (!target) return; // pas une page notebook
+
+  // Vérifie que les libs sont bien chargées
+  if (!window.marked || !window.DOMPurify) {
+    target.innerHTML = "<p><em>Erreur: marked.js ou DOMPurify n’est pas chargé.</em></p>";
+    return;
+  }
 
   try {
     NOTEBOOK = await loadNotebook("./assets/titanic-machine-learning-from-disaster.ipynb");
