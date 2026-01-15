@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>be3209b8b40a46c99111552bf91f4dde</title>
+  <style>
+    /* ===== Ajustement global type Jupyter ===== */
+
+    body {
+      font-size: 14px !important;
+      line-height: 1.4 !important;
+    }
+
+    /* Markdown */
+    div.text_cell_render {
+      font-size: 15px !important;
+      line-height: 1.6 !important;
+    }
+
+    /* Code cells */
+    div.input_area pre,
+    div.highlight pre {
+      font-size: 13px !important;
+      line-height: 1.4 !important;
+    }
+
+    /* Outputs */
+    div.output_area pre,
+    div.output_area {
+      font-size: 13px !important;
+    }
+
+    /* Tableaux */
+    table {
+      font-size: 13px !important;
+    }
+
+    /* Réduction marges verticales */
+    div.cell {
+      margin-top: 6px !important;
+      margin-bottom: 6px !important;
+    }
+
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div class="cell code"
+data-_cell_guid="b1076dfc-b9ad-4769-8c92-a6c4dae69d19"
+data-_uuid="8f2839f25d086af736a60e9eeb907d3b93b6e0e5"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:03.575624Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:03.574912Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:03.589405Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:03.588011Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:03.575564Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This Python 3 environment comes with many helpful analytics libraries installed</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, here&#39;s several helpful packages to load</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np                  <span class="co"># numerical operations and array handling</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd                 <span class="co"># data loading, cleaning, and manipulation</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns               <span class="co"># statistical data visualization</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt     <span class="co"># plot rendering and figure control</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings                     <span class="co"># suppress non-critical warnings during EDA/modeling</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ignore&quot;</span>, category<span class="op">=</span><span class="pp">FutureWarning</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression     <span class="co"># baseline classification model</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> (</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    accuracy_score,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    classification_report,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    confusion_matrix</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>)                                                       <span class="co"># model evaluation metrics</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler        <span class="co"># feature scaling for linear models</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline                   <span class="co"># preprocessing and modeling</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier     <span class="co"># tree-based ensemble model</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Input data files are available in the read-only &quot;../input/&quot; directory</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> dirname, _, filenames <span class="kw">in</span> os.walk(<span class="st">&#39;/kaggle/input&#39;</span>):</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> filename <span class="kw">in</span> filenames:</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(os.path.join(dirname, filename))</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using &quot;Save &amp; Run All&quot; </span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># You can also write temporary files to /kaggle/temp/, but they won&#39;t be saved outside of the current session</span></span></code></pre></div>
+</div>
+<section id="exploratory-data-analysis" class="cell markdown">
+<h1>Exploratory Data Analysis</h1>
+</section>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:03.592584Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:03.591452Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:03.632854Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:03.632041Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:03.592544Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load training data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>train_data <span class="op">=</span> pd.read_csv(<span class="st">&quot;/kaggle/input/titanic/train.csv&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>train_data.head(<span class="dv">5</span>)</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:03.634002Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:03.633701Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:03.653022Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:03.652073Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:03.633973Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load test data </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>test_data <span class="op">=</span> pd.read_csv(<span class="st">&quot;/kaggle/input/titanic/test.csv&quot;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>test_data.head(<span class="dv">5</span>)</span></code></pre></div>
+</div>
+<div class="cell markdown">
+<p><strong>Explore Data to see if any trends initially pop
+out</strong></p>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:03.654763Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:03.654383Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:03.661263Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:03.660419Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:03.654725Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to dataframe and assess shape</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>train_df <span class="op">=</span> train_data </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>train_df.shape</span></code></pre></div>
+</div>
+<div class="cell markdown">
+<p><strong>Dataset has 891 rows / passengers and 12 columns</strong></p>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:03.66268Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:03.66236Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:03.683245Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:03.682164Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:03.662649Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assess information </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>train_df.info()</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:03.684732Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:03.684382Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:03.722836Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:03.721995Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:03.684694Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># statistical information on train data</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>train_df.describe()</span></code></pre></div>
+</div>
+<div class="cell markdown">
+<p><strong>Above we see there are 891 passengers in this training data.
+The average age is 29.7 years and 38% survived.</strong></p>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:03.724422Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:03.724043Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:03.733182Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:03.731865Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:03.724385Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assess totals of missing data </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>train_df.isnull().<span class="bu">sum</span>()</span></code></pre></div>
+</div>
+<div class="cell markdown">
+<p><strong>Age is missing for 177 passengers. Cabin is missing for 687
+passengers. Cabin will be unuseable for this analysis. Age can be
+imputed with the average age. Mode can be used for teh 2 missing values
+in embarked.</strong></p>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:03.734868Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:03.734437Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:04.076345Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:04.075239Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:03.734835Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize missing values </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sns.heatmap(train_df.isna(), cbar<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:04.077997Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:04.077542Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:04.084329Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:04.083217Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:04.077962Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check columns</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>train_df.columns</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:04.086088Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:04.08565Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:04.10504Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:04.104109Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:04.086048Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assess survival rate</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>train_df[<span class="st">&#39;Survived&#39;</span>].value_counts(normalize<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+</div>
+<div class="cell markdown">
+<p><strong>38.3% survived, 61.6% died</strong></p>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:04.106799Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:04.106374Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:04.235911Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:04.235Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:04.10674Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot survival distribution</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>counts <span class="op">=</span> train_df[<span class="st">&#39;Survived&#39;</span>].value_counts().sort_index()</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>plt.bar([<span class="st">&#39;Died&#39;</span>, <span class="st">&#39;Survived&#39;</span>], counts, color<span class="op">=</span>[<span class="st">&#39;red&#39;</span>, <span class="st">&#39;green&#39;</span>])</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&#39;Survival Status&#39;</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&#39;Passenger Count&#39;</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;Survival Distribution&#39;</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:04.237363Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:04.237007Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:04.451472Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:04.450537Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:04.237333Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># univariate analysis </span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sns.histplot(train_df[<span class="st">&#39;Age&#39;</span>], bins<span class="op">=</span><span class="dv">30</span>)</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:04.453106Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:04.452705Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:04.589612Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:04.58849Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:04.453072Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot embark</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">&#39;Embarked&#39;</span>, data<span class="op">=</span>train_df)</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:04.591071Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:04.590692Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:04.758108Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:04.757123Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:04.591032Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot: age by survival </span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.boxplot(</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>train_df,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">&#39;Survived&#39;</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">&#39;Age&#39;</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">&#39;Survived&#39;</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    palette<span class="op">=</span>[<span class="st">&#39;red&#39;</span>, <span class="st">&#39;green&#39;</span>],</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    dodge<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">False</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&#39;Survival Status&#39;</span>)</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&#39;Age&#39;</span>)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;Age Distribution by Survival Status&#39;</span>)</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:04.75965Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:04.759319Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:05.071611Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:05.070795Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:04.759583Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bivariate analysis of age and survival </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.histplot(</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>train_df,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">&#39;Age&#39;</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">&#39;Survived&#39;</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    hue_order<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">1</span>],</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    bins<span class="op">=</span><span class="dv">30</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    kde<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    palette<span class="op">=</span>{<span class="dv">0</span>: <span class="st">&#39;red&#39;</span>, <span class="dv">1</span>: <span class="st">&#39;green&#39;</span>}</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&#39;Age&#39;</span>)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&#39;Passenger Count&#39;</span>)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;Age Distribution by Survival&#39;</span>)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co"># legend set up</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>legend <span class="op">=</span> ax.get_legend()</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>mapping <span class="op">=</span> {<span class="st">&#39;0&#39;</span>: <span class="st">&#39;Died&#39;</span>, <span class="st">&#39;1&#39;</span>: <span class="st">&#39;Survived&#39;</span>, <span class="st">&#39;0.0&#39;</span>: <span class="st">&#39;Died&#39;</span>, <span class="st">&#39;1.0&#39;</span>: <span class="st">&#39;Survived&#39;</span>}</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> text <span class="kw">in</span> legend.get_texts():</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>    text.set_text(mapping.get(text.get_text(), text.get_text()))</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>legend.set_title(<span class="st">&#39;Survival Status&#39;</span>)</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+</div>
+<div class="cell markdown">
+<p><strong>Shows that younger people were more likely to
+survive</strong></p>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:05.072992Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:05.072638Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:05.08197Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:05.080982Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:05.072956Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assess gender survival </span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>train_df.groupby(<span class="st">&#39;Sex&#39;</span>)[<span class="st">&#39;Survived&#39;</span>].mean()</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:05.083444Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:05.083093Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:05.308259Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:05.307249Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:05.083408Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot survival by sex </span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">&#39;Sex&#39;</span>, y<span class="op">=</span><span class="st">&#39;Survived&#39;</span>, data<span class="op">=</span>train_df)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;Survival Rate by Sex&#39;</span>)</span></code></pre></div>
+</div>
+<div class="cell markdown">
+<p><strong>Women were more likely to survive</strong></p>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:05.310007Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:05.309676Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:05.325145Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:05.323831Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:05.309977Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>train_df.groupby([<span class="st">&#39;Sex&#39;</span>, <span class="st">&#39;Pclass&#39;</span>])[<span class="st">&#39;Survived&#39;</span>].mean().unstack()</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:05.326561Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:05.32629Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:05.670472Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:05.669323Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:05.326535Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot gender and passenger class </span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>sns.barplot(</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">&#39;Pclass&#39;</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">&#39;Survived&#39;</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">&#39;Sex&#39;</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>train_df</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;Survival Rate by Class and Sex&#39;</span>)</span></code></pre></div>
+</div>
+<div class="cell markdown">
+<p><strong>Women in all classes were more likely to survive</strong></p>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:05.672017Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:05.671613Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:05.683627Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:05.682482Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:05.671987Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assess fare vs sex</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>train_df.groupby(<span class="st">&#39;Sex&#39;</span>)[<span class="st">&#39;Fare&#39;</span>].median()</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>train_df.groupby([<span class="st">&#39;Sex&#39;</span>, <span class="st">&#39;Survived&#39;</span>])[<span class="st">&#39;Fare&#39;</span>].median()</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:05.685253Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:05.684847Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:06.093063Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:06.092211Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:05.685189Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot fare survival and sex </span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">&#39;Survived&#39;</span>,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">&#39;Fare&#39;</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">&#39;Sex&#39;</span>,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>train_df</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>plt.yscale(<span class="st">&#39;log&#39;</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;Fare by Survival and Sex&#39;</span>)</span></code></pre></div>
+</div>
+<div class="cell markdown">
+<p><strong>Shows trend that fare is associated with survival especially
+among women</strong></p>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:06.094498Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:06.094164Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:06.104629Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:06.103256Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:06.094461Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>train_df[train_df[<span class="st">&#39;Sex&#39;</span>] <span class="op">==</span> <span class="st">&#39;female&#39;</span>].groupby(<span class="st">&#39;Survived&#39;</span>)[<span class="st">&#39;Age&#39;</span>].median()</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:06.107231Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:06.106026Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:06.494092Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:06.493171Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:06.107192Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># age of female survivors </span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>sns.histplot(</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>train_df[train_df[<span class="st">&#39;Sex&#39;</span>] <span class="op">==</span> <span class="st">&#39;female&#39;</span>],</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">&#39;Age&#39;</span>,</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">&#39;Survived&#39;</span>,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    bins<span class="op">=</span><span class="dv">30</span>,</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    kde<span class="op">=</span><span class="va">True</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;Age Distribution of Female Passengers by Survival&#39;</span>)</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:06.495649Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:06.495236Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:06.754821Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:06.753893Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:06.495592Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assess sex, class and age </span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">&#39;Pclass&#39;</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">&#39;Age&#39;</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">&#39;Survived&#39;</span>,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>train_df[train_df[<span class="st">&#39;Sex&#39;</span>] <span class="op">==</span> <span class="st">&#39;female&#39;</span>]</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;Age by Class and Survival (Females)&#39;</span>)</span></code></pre></div>
+</div>
+<div class="cell markdown">
+<p><strong>Shows passenger class has higher survivability and as class
+decreases age of survival decreases</strong></p>
+</div>
+<div class="cell markdown">
+<p><strong>This exploratory data analysis shows that survival outcomes
+differed significantly by sex and class. Female passengers consistently
+demonstrated higher survival rates across all classes. First class
+females had the highest survival probability. Higher fares were
+associated with improved survival outcomes, particularly with female
+passengers. This indicates socioeconomic status as a key factor. Age
+also played a role, with younger female passengers having higher
+survival likelihood especially among children.</strong></p>
+</div>
+<section id="data-cleaning" class="cell markdown">
+<h1>Data Cleaning</h1>
+</section>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:06.756555Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:06.756254Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:06.76453Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:06.763562Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:06.756527Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># drop columns that are not important and / or have to many missing values</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>train_df <span class="op">=</span> train_df.drop(columns<span class="op">=</span>[<span class="st">&#39;Cabin&#39;</span>, <span class="st">&#39;Ticket&#39;</span>, <span class="st">&#39;Name&#39;</span>])</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>train_df.columns</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:06.766088Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:06.765789Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:06.78598Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:06.784878Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:06.766052Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fix invalid entries </span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>train_df<span class="op">=</span> train_df.replace([np.inf, <span class="op">-</span>np.inf],np.nan)</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:06.788196Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:06.787846Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:06.8085Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:06.806832Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:06.788166Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># replace missing age values with the grouped median values</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>train_df[<span class="st">&#39;Age&#39;</span>] <span class="op">=</span> train_df.groupby([<span class="st">&#39;Sex&#39;</span>, <span class="st">&#39;Pclass&#39;</span>])[<span class="st">&#39;Age&#39;</span>] <span class="op">\</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                          .transform(<span class="kw">lambda</span> x: x.fillna(x.median()))</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:06.810844Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:06.810425Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:06.818849Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:06.818085Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:06.810813Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check that imputation took place </span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>train_df[<span class="st">&#39;Age&#39;</span>].isnull().<span class="bu">sum</span>()</span></code></pre></div>
+</div>
+<div class="cell markdown">
+<p><strong>Age column has no more missing values</strong></p>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:06.820348Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:06.819939Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:06.837489Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:06.836406Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:06.820304Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fill missing values in embarked wtih mode </span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>train_df[<span class="st">&#39;Embarked&#39;</span>].fillna(train_df[<span class="st">&#39;Embarked&#39;</span>].mode()[<span class="dv">0</span>], inplace<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:06.839489Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:06.8391Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:06.856647Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:06.855455Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:06.839456Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check that imputation took place</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>train_df[<span class="st">&#39;Embarked&#39;</span>].isnull().<span class="bu">sum</span>()</span></code></pre></div>
+</div>
+<div class="cell markdown">
+<p><strong>Embarked column has no missing values</strong></p>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:06.858478Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:06.85797Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:06.874321Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:06.873369Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:06.858427Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># feature engingeering -- family features</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>train_df[<span class="st">&#39;FamilySize&#39;</span>] <span class="op">=</span> train_df[<span class="st">&#39;SibSp&#39;</span>] <span class="op">+</span> train_df[<span class="st">&#39;Parch&#39;</span>] <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>train_df[<span class="st">&#39;IsAlone&#39;</span>] <span class="op">=</span> (train_df[<span class="st">&#39;FamilySize&#39;</span>] <span class="op">==</span> <span class="dv">1</span>).astype(<span class="bu">int</span>)</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:06.875853Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:06.875468Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:06.892207Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:06.891073Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:06.875813Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clean up fare due to skewing</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>train_df[<span class="st">&#39;Fare&#39;</span>] <span class="op">=</span> train_df[<span class="st">&#39;Fare&#39;</span>].fillna(train_df[<span class="st">&#39;Fare&#39;</span>].median())</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:06.894734Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:06.894204Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:06.913241Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:06.912346Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:06.894703Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># encode categirical variables </span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>train_df <span class="op">=</span> pd.get_dummies(</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    train_df,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[<span class="st">&#39;Sex&#39;</span>, <span class="st">&#39;Embarked&#39;</span>],</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    drop_first<span class="op">=</span><span class="va">True</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:06.914565Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:06.914262Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:06.933012Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:06.931955Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:06.914534Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># verify no more missing values </span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>train_df.isna().<span class="bu">sum</span>()</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>train_df.dtypes</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:06.934463Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:06.934139Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:06.949528Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:06.948507Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:06.934425Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># feature separation and identify target</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> train_df.drop(columns<span class="op">=</span>[<span class="st">&#39;Survived&#39;</span>, <span class="st">&#39;PassengerId&#39;</span>])</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> train_df[<span class="st">&#39;Survived&#39;</span>]</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:06.951502Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:06.951022Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:06.972312Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:06.971371Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:06.951453Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>X_train, X_val, y_train, y_val <span class="op">=</span> train_test_split(</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, stratify<span class="op">=</span>y, random_state<span class="op">=</span><span class="dv">25</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+<div class="cell markdown">
+<p><strong>After completing EDA, I cleaned the data by removing
+high-missing columns, imputing age using grouped medians informed by
+passenger class and sex, engineering family-based features, addressing
+skewed fare distributions, encoding categorical variables, and
+validating that the final dataset contained no missing values before
+modeling.</strong></p>
+</div>
+<section id="modeling" class="cell markdown">
+<h1>Modeling</h1>
+</section>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:06.974014Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:06.973662Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:07.016951Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:07.015909Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:06.973976Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standard logistic regression model </span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>pipeline <span class="op">=</span> Pipeline([</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&#39;scaler&#39;</span>, StandardScaler()),</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&#39;model&#39;</span>, LogisticRegression(max_iter<span class="op">=</span><span class="dv">1000</span>))</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>pipeline.fit(X_train, y_train)</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> pipeline.predict(X_val)</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Accuracy:&quot;</span>, accuracy_score(y_val, y_pred))</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_val, y_pred))</span></code></pre></div>
+</div>
+<div class="cell markdown">
+<p><strong>The logistic regression has an accuracy of 81%. This could be
+improved, however it validates the exploratory data analysis and
+cleaning steps. Next steps are to try a non-linear model.</strong></p>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:07.018424Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:07.018106Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:08.1314Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:08.130449Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:07.018395Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># perform random forest classifier model </span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>rf <span class="op">=</span> RandomForestClassifier(</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    n_estimators<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    random_state<span class="op">=</span><span class="dv">25</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>rf.fit(X_train, y_train)</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>rf_pred <span class="op">=</span> rf.predict(X_val)</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;RF Accuracy:&quot;</span>, accuracy_score(y_val, rf_pred))</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_val, rf_pred))</span></code></pre></div>
+</div>
+<div class="cell markdown">
+<p><strong>The random forest classifier is slightly more
+accurate.</strong></p>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:08.13325Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:08.13268Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:08.348869Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:08.348011Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:08.13322Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># identify feature importance</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>feature_importance <span class="op">=</span> pd.Series(</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    rf.feature_importances_,</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>X_train.columns</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>).sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>feature_importance</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:08.350533Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:08.35004Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:08.35516Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:08.354174Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:08.350502Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># passenger ID should not be important - we need to remove this</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co">#X_train = X_train.drop(columns=[&#39;PassengerId&#39;])</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="co">#X_val = X_val.drop(columns=[&#39;PassengerId&#39;])</span></span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:08.356614Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:08.356263Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:09.466116Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:09.465197Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:08.356556Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rerun the random forest classifier </span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>rf <span class="op">=</span> RandomForestClassifier(</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    n_estimators<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    random_state<span class="op">=</span><span class="dv">25</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>rf.fit(X_train, y_train)</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>rf_pred <span class="op">=</span> rf.predict(X_val)</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;RF Accuracy:&quot;</span>, accuracy_score(y_val, rf_pred))</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_val, rf_pred))</span></code></pre></div>
+</div>
+<div class="cell markdown">
+<p><strong>Removing passenger ID decreased model accurac. This was
+expected. </strong></p>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:09.46792Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:09.467509Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:09.518657Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:09.517773Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:09.467878Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># recheck feature importances </span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>feature_importance <span class="op">=</span> pd.Series(</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    rf.feature_importances_,</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>X_train.columns</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>).sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>feature_importance</span></code></pre></div>
+</div>
+<div class="cell markdown">
+<p><strong>Feature importance analysis from the Random Forest model
+shows that fare, passenger sex, and age are the most influential
+predictors of survival, followed by passenger class. Family structure
+and embarkation location contribute modestly, indicating that
+socioeconomic status and demographic factors play the primary role in
+survival outcomes.</strong></p>
+</div>
+<section id="prepare-the-test-data" class="cell markdown">
+<h1>Prepare the Test Data</h1>
+</section>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:09.520111Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:09.519769Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:09.533218Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:09.532418Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:09.520074Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># test data</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>test_data.head(<span class="dv">5</span>)</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:09.534864Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:09.534387Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:09.551432Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:09.55038Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:09.534827Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a working copy of the Kaggle test set</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>test_df <span class="op">=</span> test_data.copy()</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co"># keep PassengerId for the submission file, but do not use it as a feature</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>test_passenger_id <span class="op">=</span> test_df[<span class="st">&#39;PassengerId&#39;</span>]</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:09.553096Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:09.55271Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:09.573209Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:09.572175Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:09.553058Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb45"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quick missingness check</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>test_df.isna().<span class="bu">sum</span>()</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:09.574885Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:09.574511Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:09.611677Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:09.610626Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:09.574843Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb46"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># apply the same cleaning / preprocessing steps used for training</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co"># drop columns not used for modeling</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>test_df <span class="op">=</span> test_df.drop(columns<span class="op">=</span>[<span class="st">&#39;Cabin&#39;</span>, <span class="st">&#39;Ticket&#39;</span>, <span class="st">&#39;Name&#39;</span>])</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="co"># replace infinite values</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>test_df <span class="op">=</span> test_df.replace([np.inf, <span class="op">-</span>np.inf], np.nan)</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="co"># impute Age using grouped medians (Sex x Pclass)</span></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>test_df[<span class="st">&#39;Age&#39;</span>] <span class="op">=</span> test_df.groupby([<span class="st">&#39;Sex&#39;</span>, <span class="st">&#39;Pclass&#39;</span>])[<span class="st">&#39;Age&#39;</span>] <span class="op">\</span></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>                        .transform(<span class="kw">lambda</span> x: x.fillna(x.median()))</span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a><span class="co"># fill Embarked with mode (very few missing)</span></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a>test_df[<span class="st">&#39;Embarked&#39;</span>].fillna(train_data[<span class="st">&#39;Embarked&#39;</span>].mode()[<span class="dv">0</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a><span class="co"># fare has missing values in test set</span></span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a>test_df[<span class="st">&#39;Fare&#39;</span>].fillna(train_data[<span class="st">&#39;Fare&#39;</span>].median(), inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a><span class="co"># feature engineering</span></span>
+<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a>test_df[<span class="st">&#39;FamilySize&#39;</span>] <span class="op">=</span> test_df[<span class="st">&#39;SibSp&#39;</span>] <span class="op">+</span> test_df[<span class="st">&#39;Parch&#39;</span>] <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a>test_df[<span class="st">&#39;IsAlone&#39;</span>] <span class="op">=</span> (test_df[<span class="st">&#39;FamilySize&#39;</span>] <span class="op">==</span> <span class="dv">1</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb46-22"><a href="#cb46-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-23"><a href="#cb46-23" aria-hidden="true" tabindex="-1"></a><span class="co"># one-hot encode categorical variables (match training)</span></span>
+<span id="cb46-24"><a href="#cb46-24" aria-hidden="true" tabindex="-1"></a>test_df <span class="op">=</span> pd.get_dummies(</span>
+<span id="cb46-25"><a href="#cb46-25" aria-hidden="true" tabindex="-1"></a>    test_df,</span>
+<span id="cb46-26"><a href="#cb46-26" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[<span class="st">&#39;Sex&#39;</span>, <span class="st">&#39;Embarked&#39;</span>],</span>
+<span id="cb46-27"><a href="#cb46-27" aria-hidden="true" tabindex="-1"></a>    drop_first<span class="op">=</span><span class="va">True</span></span>
+<span id="cb46-28"><a href="#cb46-28" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb46-29"><a href="#cb46-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-30"><a href="#cb46-30" aria-hidden="true" tabindex="-1"></a><span class="co"># align test columns to training feature columns</span></span>
+<span id="cb46-31"><a href="#cb46-31" aria-hidden="true" tabindex="-1"></a>test_df <span class="op">=</span> test_df.reindex(columns<span class="op">=</span>X.columns, fill_value<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb46-32"><a href="#cb46-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-33"><a href="#cb46-33" aria-hidden="true" tabindex="-1"></a>test_df.head()</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:09.613503Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:09.613203Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:09.618646Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:09.617883Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:09.613475Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb47"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fill fare with median for 1 missing value</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>test_df[<span class="st">&#39;Fare&#39;</span>].fillna(test_df[<span class="st">&#39;Fare&#39;</span>].median(), inplace<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:09.620294Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:09.619926Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:09.65252Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:09.651268Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:09.620254Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb48"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fit the final model on the full cleaned training dataset</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>pipeline.fit(X, y)</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:34:09.655454Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:34:09.655061Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:34:09.67734Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:34:09.676205Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:34:09.655414Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb49"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate predictions for Kaggle submission</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>test_predictions <span class="op">=</span> pipeline.predict(test_df)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>submission <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;PassengerId&#39;</span>: test_passenger_id,</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;Survived&#39;</span>: test_predictions</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>submission.to_csv(<span class="st">&#39;submission.csv&#39;</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>submission.head()</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:39:13.472449Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:39:13.472106Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:39:13.478711Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:39:13.477701Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:39:13.47242Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb50"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check submission csv</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>submission.head()</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>submission.shape</span></code></pre></div>
+</div>
+<div class="cell code"
+data-execution="{&quot;iopub.execute_input&quot;:&quot;2026-01-07T21:39:48.001655Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-01-07T21:39:48.001288Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-01-07T21:39:48.008461Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-01-07T21:39:48.007328Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2026-01-07T21:39:48.001618Z&quot;}"
+data-trusted="true">
+<div class="sourceCode" id="cb51"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save submission</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>submission.to_csv(<span class="st">&#39;submission.csv&#39;</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+</div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"0357a45f23a943f08700f7f9af191ee6","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

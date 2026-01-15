@@ -5,6 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Notebook original (1)</title>
   <link rel="stylesheet" href="./assets/style.css" />
+
+  <style>
+    /* Rend l'iframe "comme une page notebook" dans ta carte */
+    .nbFrameWrap {
+      background: #eaeaea;              /* fond autour du notebook */
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    body {
+      background: #f5f5f5; /* fond Jupyter */
+    }
+    .nbFrame{
+      width: 100%;
+      height: 200vh;         /* ajuste si tu veux plus/moins haut */
+      border: 0;
+      display: block;
+      background: #fff;
+    }
+  </style>
 </head>
 <body>
 <header>
@@ -17,9 +38,17 @@
 <main>
   <div class="container">
     <h2>Notebook original</h2>
-    <div id="notebook" class="notebook">
-      <p><em>Chargement du notebook…</em></p>
+
+    <div class="nbFrameWrap">
+      <!-- Technique 1 : on affiche le notebook exporté HTML -->
+      <iframe
+        class="nbFrame"
+        src="./assets/notebook.html"
+        title="Notebook Titanic (HTML export)"
+        loading="lazy">
+      </iframe>
     </div>
+
   </div>
 </main>
 
@@ -27,9 +56,5 @@
   <div class="progress">2 / 6</div>
   <a href="./scenario2.html">Suivant →</a>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js"></script>
-<script src="./assets/notebook.js"></script>
 </body>
 </html>
